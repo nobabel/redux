@@ -9,7 +9,12 @@ const config = {
   plugins: []
 }
 
-if (env === 'es' || env === 'cjs') {
+if (env === 'es') {
+  config.output = { format: env }
+  config.external = ['symbol-observable']
+}
+
+if (env === 'cjs') {
   config.output = { format: env }
   config.external = ['symbol-observable']
   config.plugins.push(
