@@ -10,12 +10,12 @@ const config = {
 }
 
 if (env === 'es') {
-  config.output = { format: env }
+  config.output = { format: env, indent: false }
   config.external = ['symbol-observable']
 }
 
 if (env === 'cjs') {
-  config.output = { format: env }
+  config.output = { format: env, indent: false }
   config.external = ['symbol-observable']
   config.plugins.push(
     babel({
@@ -25,7 +25,7 @@ if (env === 'cjs') {
 }
 
 if (env === 'development' || env === 'production') {
-  config.output = { format: 'umd', name: 'Redux' }
+  config.output = { format: 'umd', name: 'Redux', indent: false }
   config.plugins.push(
     nodeResolve({
       jsnext: true
